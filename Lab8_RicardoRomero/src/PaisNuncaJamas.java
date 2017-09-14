@@ -265,7 +265,7 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
             .addGap(0, 381, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("tab4", jPanel1);
+        jTabbedPane2.addTab("Eliminar", jPanel1);
 
         jMenu1.setText("Menu");
 
@@ -318,7 +318,7 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarMouseClicked
-
+        
     }//GEN-LAST:event_guardarMouseClicked
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed

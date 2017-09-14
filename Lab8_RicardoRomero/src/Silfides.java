@@ -11,8 +11,6 @@
 public class Silfides extends Hadas{
     private long alas;
 
-    public Silfides() {
-    }
 
     public Silfides(long alas, String nombre, int altura, int edad, long salud, String poder) {
         super(nombre, altura, edad, salud, poder);

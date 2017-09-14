@@ -11,8 +11,6 @@
 public class Salamandras extends Hadas{
     private long alas;
 
-    public Salamandras() {
-    }
 
     public Salamandras(long alas, String nombre, int altura, int edad, long salud, String poder) {
         super(nombre, altura, edad, salud, poder);
