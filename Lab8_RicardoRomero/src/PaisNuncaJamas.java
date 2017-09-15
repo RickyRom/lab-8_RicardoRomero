@@ -723,7 +723,7 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
     }//GEN-LAST:event_edad1ActionPerformed
 
     private void modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarMouseClicked
-        
+
     }//GEN-LAST:event_modificarMouseClicked
 
     private void mi_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_guardarActionPerformed
