@@ -1,10 +1,17 @@
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -40,37 +47,37 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        cb_hadas = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        altura = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        edad = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        aletas = new javax.swing.JSpinner();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
+        alas_silfides = new javax.swing.JSpinner();
         jLabel12 = new javax.swing.JLabel();
-        jSpinner3 = new javax.swing.JSpinner();
+        branquias = new javax.swing.JSpinner();
         jLabel13 = new javax.swing.JLabel();
-        jSpinner4 = new javax.swing.JSpinner();
+        alas_salamandra = new javax.swing.JSpinner();
         jLabel14 = new javax.swing.JLabel();
         guardar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        abrir = new javax.swing.JMenuItem();
+        mi_guardar = new javax.swing.JMenuItem();
+        mi_guardarcomo = new javax.swing.JMenuItem();
+        about = new javax.swing.JMenuItem();
+        salir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,13 +107,13 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Modificar", jPanel5);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Agregar Hadas");
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Que hada desea usar?");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lamias", "Hamadriades", "Silfides", "Salamandras" }));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Agregar Hadas");
+
+        cb_hadas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lamias", "Hamadriades", "Silfides", "Salamandras" }));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Nombre");
@@ -120,7 +127,7 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Lamias");
 
-        jLabel9.setText("Alas");
+        jLabel9.setText("aletas");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Silfides");
@@ -155,7 +162,7 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(cb_hadas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel5)
@@ -163,9 +170,9 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
                                     .addComponent(jLabel6))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))))
+                                    .addComponent(altura)
+                                    .addComponent(nombre)
+                                    .addComponent(edad, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))))
                         .addGap(105, 105, 105)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,22 +185,22 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
                                             .addGap(18, 18, 18)
                                             .addComponent(jLabel9)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(aletas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(jLabel12)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(branquias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(jLabel14)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(alas_salamandra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(jLabel10)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel11)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(alas_silfides, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addGap(169, 169, 169)))))
@@ -201,7 +208,7 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136))
+                .addGap(141, 141, 141))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,14 +219,14 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_hadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(aletas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(branquias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
@@ -227,29 +234,29 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(24, 24, 24)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(altura, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
-                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(alas_silfides, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
-                            .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(alas_salamandra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGap(37, 37, 37))
         );
 
         jTabbedPane2.addTab("Agregar", jPanel4);
@@ -269,35 +276,40 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
 
         jMenu1.setText("Menu");
 
-        jMenuItem1.setText("Abrir");
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Guardar");
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setText("Guardar Como");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        abrir.setText("Abrir");
+        abrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                abrirActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(abrir);
 
-        jMenuItem4.setText("About");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        mi_guardar.setText("Guardar");
+        jMenu1.add(mi_guardar);
+
+        mi_guardarcomo.setText("Guardar Como");
+        mi_guardarcomo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                mi_guardarcomoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        jMenu1.add(mi_guardarcomo);
 
-        jMenuItem5.setText("Salir");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        about.setText("About");
+        about.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                aboutActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem5);
+        jMenu1.add(about);
+
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(salir);
 
         jMenuBar1.add(jMenu1);
 
@@ -318,44 +330,136 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarMouseClicked
-        
+        if (cb_hadas.getSelectedItem().equals("Lamias")) {
+            Hadas hl = new Lamias(((Number) aletas.getValue()).longValue(), ((Number) branquias.getValue()).IntegerValue(), nombre.getText(), edad.getText(), ((Number) altura.getValue()).doubleValue());
+
+            ah.setPersona(hl);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
+        }
+        if (rd_silfides.isSelected()) {
+            hadas hs = new silfides(((Number) silfides_alas.getValue()).doubleValue(), tf_nombres.getText(), tf_edad.getText(), ((Number) sp_altura.getValue()).doubleValue());
+            ah.setPersona(hs);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
+        }
+        if (rb_hamadriades.isSelected()) {
+            hadas hh = new hamadriades(tf_nombres.getText(), tf_edad.getText(), ((Number) sp_altura.getValue()).doubleValue());
+            ah.setPersona(hh);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
+        }
+        if (rb_salamandras.isSelected()) {
+            hadas hs = new salamandras(((Number) salamandras_alas.getValue()).doubleValue(), tf_nombres.getText(), tf_edad.getText(), ((Number) sp_altura.getValue()).doubleValue());
+            ah.setPersona(hs);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
+        }
     }//GEN-LAST:event_guardarMouseClicked
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
         JOptionPane.showMessageDialog(this, "Juego de Hadas \n" + "Este juego se trata de crear sus propias Hadas \n" + "y hacerlas pelear hasta que una de las 2 pierda");
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_aboutActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_salirActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void mi_guardarcomoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_guardarcomoActionPerformed
         ///guardar como --------------------
         JFileChooser jfc = new JFileChooser();
         int seleccion = jfc.showSaveDialog(this);
-        FileWriter fw = null;
-        BufferedWriter bw = null;
+
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             try {
-                ah.setArchivo(archi);
-                ah.escribirArchivo();
-                archi=ah.getArchivo();
+
                 archi = jfc.getSelectedFile();
-                fw = new FileWriter(archi + ".cbm");
-                bw = new BufferedWriter(fw);
+                FileOutputStream fw = null;
+                ObjectOutputStream bw = null;
+                try {
+                    fw = new FileOutputStream(archi + ".cbm");
+                    bw = new ObjectOutputStream(fw);
+                    for (Hadas t : ah.listahadas) {
+                        bw.writeObject(t);
+                    }
+                    bw.flush();
+                } catch (Exception e) {
+                } finally {
+                    try {
+                        bw.close();
+                        fw.close();
+                    } catch (Exception e) {
+                    }
+                }
+                //fw = new FileWriter(fichero + ".cbm");
+                //bw = new BufferedWriter(fw);
                 bw.flush();
                 JOptionPane.showMessageDialog(this, "Archivo guardado exitosamente");
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
                 try {
-                    bw.close();
-                    fw.close();
+                    // bw.close();
+                    //fw.close();
                 } catch (Exception e) {
                 }
             }
         }
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+        mi_guardarcomo.setEnabled(false);
+    }//GEN-LAST:event_mi_guardarcomoActionPerformed
+
+    private void abrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirActionPerformed
+        FileReader fr = null;
+        BufferedReader br = null;
+
+        try {
+            JFileChooser jfc = new JFileChooser();
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de Texto", "cbm");
+            FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("Imagenes", "jpg", "png", "bmp");
+            jfc.setFileFilter(filtro);
+            jfc.addChoosableFileFilter(filtro2);
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                archi = jfc.getSelectedFile();
+                try {
+                    ah.listahadas = new ArrayList();
+                    Hadas temp;
+                    if (archi.exists()) {
+                        FileInputStream entrada = new FileInputStream(archi);
+                        ObjectInputStream objeto = new ObjectInputStream(entrada);
+                        try {
+                            while ((temp = (Hadas) objeto.readObject()) != null) {
+                                ah.listahadas.add(temp);
+                            }
+                        } catch (EOFException e) {
+                            //encontro el final del archivo
+                        }
+                        objeto.close();
+                        entrada.close();
+                    }//fin if
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                fr = new FileReader(archi);
+                br = new BufferedReader(fr);
+                String linea;
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            br.close();
+            fr.close();
+        } catch (Exception e) {
+        }
+
+        DefaultComboBoxModel model = (DefaultComboBoxModel) jComboBox1.getModel();
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model.addElement(ah.listahadas.get(i).getNombre());
+            }
+
+        }
+    }//GEN-LAST:event_abrirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -393,8 +497,16 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem about;
+    private javax.swing.JMenuItem abrir;
+    private javax.swing.JSpinner alas_salamandra;
+    private javax.swing.JSpinner alas_silfides;
+    private javax.swing.JSpinner aletas;
+    private javax.swing.JTextField altura;
+    private javax.swing.JSpinner branquias;
+    private javax.swing.JComboBox<String> cb_hadas;
+    private javax.swing.JTextField edad;
     private javax.swing.JButton guardar;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -411,24 +523,16 @@ public class PaisNuncaJamas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner4;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JMenuItem mi_guardar;
+    private javax.swing.JMenuItem mi_guardarcomo;
+    private javax.swing.JTextField nombre;
+    private javax.swing.JMenuItem salir;
     // End of variables declaration//GEN-END:variables
 AdminHadas ah = new AdminHadas();
-File archi;
+    File archi;
 }

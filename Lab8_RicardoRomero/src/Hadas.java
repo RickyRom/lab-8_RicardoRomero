@@ -12,23 +12,32 @@ import java.io.Serializable;
  * @author ricky
  */
 public class Hadas implements Serializable {
-    private String nombre;
-    private int altura;
-    private int edad;
-    private long salud;
-    private String poder;
-    
-    private static final long SerialVersionUID = 15L;
+   String nombre, edad, tipo;
+    double altura, salud, poder;
 
     public Hadas() {
     }
 
-    public Hadas(String nombre, int altura, int edad, long salud, String poder) {
+    public Hadas(String nombre, String edad, double altura) {
         this.nombre = nombre;
-        this.altura = altura;
         this.edad = edad;
+        this.altura = altura;
+    }
+
+    public Hadas(String nombre, String edad, double altura, double salud, double poder) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.altura = altura;
         this.salud = salud;
         this.poder = poder;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getNombre() {
@@ -39,41 +48,41 @@ public class Hadas implements Serializable {
         this.nombre = nombre;
     }
 
-    public int getAltura() {
-        return altura;
-    }
-
-    public void setAltura(int altura) {
-        this.altura = altura;
-    }
-
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
-    public long getSalud() {
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public double getSalud() {
         return salud;
     }
 
-    public void setSalud(long salud) {
+    public void setSalud(double salud) {
         this.salud = salud;
     }
 
-    public String getPoder() {
+    public double getPoder() {
         return poder;
     }
 
-    public void setPoder(String poder) {
+    public void setPoder(double poder) {
         this.poder = poder;
     }
 
     @Override
     public String toString() {
-        return "Hadas{" + "nombre=" + nombre + ", altura=" + altura + ", edad=" + edad + ", salud=" + salud + ", poder=" + poder + '}';
+        return nombre;
     }
     
 }

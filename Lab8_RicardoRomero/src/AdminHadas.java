@@ -21,6 +21,8 @@ public class AdminHadas {
     ArrayList<Hadas> listahadas = new ArrayList();
     File archivo = null;
 
+    public AdminHadas() {
+    }
 
     AdminHadas(String admincbm) {
         archivo = new File(admincbm);

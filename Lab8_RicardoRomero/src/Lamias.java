@@ -9,35 +9,61 @@
  * @author ricky
  */
 public class Lamias extends Hadas{
-    private long aleta;
-    private int branquias;
+   double aleta, branquias;
 
+    public Lamias() {
+        super();
+    }
 
-    public Lamias(long aleta, int branquias, String nombre, int altura, int edad, long salud, String poder) {
-        super(nombre, altura, edad, salud, poder);
+    public Lamias(double aleta, double branquias, String nombre, String edad, double altura) {
+        super(nombre, edad, altura);
         this.aleta = aleta;
         this.branquias = branquias;
     }
 
-    public long getAleta() {
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = "Lamias";
+    }
+
+    public double getSalud() {
+        return salud;
+    }
+
+    public void setSalud(double salud) {
+        this.salud = 475.0;
+    }
+
+    public double getPoder() {
+        return poder;
+    }
+
+    public void setPoder(double poder) {
+        this.poder = 57.0;
+    }
+
+    public double getAleta() {
         return aleta;
     }
 
-    public void setAleta(long aleta) {
+    public void setAleta(double aleta) {
         this.aleta = aleta;
     }
 
-    public int getBranquias() {
+    public double getBranquias() {
         return branquias;
     }
 
-    public void setBranquias(int branquias) {
+    public void setBranquias(double branquias) {
         this.branquias = branquias;
     }
 
     @Override
     public String toString() {
-        return "Lamias{" + "aleta=" + aleta + ", branquias=" + branquias + '}';
+        return super.toString();
     }
     
 }
